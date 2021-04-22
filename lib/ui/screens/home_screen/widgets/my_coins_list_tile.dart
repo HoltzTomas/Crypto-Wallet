@@ -1,7 +1,5 @@
 import 'package:belo_challenge/models/Coin.dart';
 import 'package:flutter/material.dart';
-import 'package:websafe_svg/websafe_svg.dart';
-
 import '../../../../constants.dart';
 
 class MyCoinListTile extends StatelessWidget {
@@ -24,8 +22,7 @@ class MyCoinListTile extends StatelessWidget {
             height: 60,
             child: CircleAvatar(
               backgroundColor: Colors.transparent,
-              child: WebsafeSvg.asset("assets/icons/btc.svg",
-                  fit: BoxFit.cover, color: kDarkColor),
+              child: Image.network(coin.imageUrl, fit: BoxFit.cover),
             ),
             decoration: BoxDecoration(
                 color: kAccentColor, borderRadius: BorderRadius.circular(15)),
@@ -33,8 +30,8 @@ class MyCoinListTile extends StatelessWidget {
           SizedBox(width: kDefaultPadding),
           //CoinName
           Container(
-            child:
-                Text(coin.name, style: TextStyle(fontWeight: FontWeight.bold)),
+            child: Text("${coin.name[0].toUpperCase()}${coin.name.substring(1)}",
+                style: TextStyle(fontWeight: FontWeight.bold)),
           ),
           Spacer(),
           //How many coins
@@ -42,7 +39,8 @@ class MyCoinListTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text("USD ${coin.howMuchUserOwns * coin.price}",
+                Text(
+                    "ARS ${(coin.howMuchUserOwns * coin.price).toStringAsFixed(2)}",
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 Text("${coin.howMuchUserOwns} ${coin.abreviation}",
                     style: TextStyle(fontSize: 12)),

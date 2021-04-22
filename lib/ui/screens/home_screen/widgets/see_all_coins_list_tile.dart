@@ -21,16 +21,18 @@ class SeeAllCoinsListTile extends StatelessWidget {
             height: 60,
             child: CircleAvatar(
               backgroundColor: Colors.transparent,
-              child: WebsafeSvg.asset("assets/icons/btc.svg",
-                  fit: BoxFit.cover, color: kSecondaryColor),
+              child: Image.network(coin.imageUrl, fit: BoxFit.cover),
             ),
             decoration: BoxDecoration(
-                color: Colors.blue[600], borderRadius: BorderRadius.circular(15)),
+                color: Colors.blue[600],
+                borderRadius: BorderRadius.circular(15)),
           ),
           SizedBox(width: kDefaultPadding),
           //CoinName
           Container(
-            child: Text(coin.name, style: TextStyle(fontWeight: FontWeight.bold)),
+            child: Text(
+                "${coin.name[0].toUpperCase()}${coin.name.substring(1)}",
+                style: TextStyle(fontWeight: FontWeight.bold)),
           ),
           Spacer(),
           //How many coins
@@ -40,7 +42,8 @@ class SeeAllCoinsListTile extends StatelessWidget {
               children: [
                 Text("USD ${coin.price}",
                     style: TextStyle(fontWeight: FontWeight.bold)),
-                Text("%${coin.dayPriceVariety}", style: TextStyle(fontSize: 12)),
+                Text("%${coin.dayPriceVariety.toStringAsFixed(2)}",
+                    style: TextStyle(fontSize: 12)),
               ],
             ),
           ),

@@ -1,23 +1,29 @@
 import 'package:belo_challenge/models/Coin.dart';
+import 'package:belo_challenge/providers/coins_list_http.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'my_coins_list_tile.dart';
 
-class MyCoins extends StatelessWidget {
+class MyCoins extends ConsumerWidget {
   const MyCoins({Key key}) : super(key: key);
 
- 
-
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          MyCoinListTile(coin: Coin(name: "Bitcoin",abreviation: "BTC", price: 57000, howMuchUserOwns: 1.3)),
-          MyCoinListTile(coin: Coin(name: "Etherum",abreviation: "ETH", price: 13000, howMuchUserOwns: 13.7)),
-        ],
-      ),
-    );
+  Widget build(BuildContext context, ScopedReader watch) {
+    AsyncValue<List<Coin>> coins = watch(coinListRequest);
+    return coins.when(
+        loading: () => const CircularProgressIndicator(),
+        error: (err, stack) => Text('Error: $err'),
+        data: (coins) {
+          List<MyCoinListTile> coinsListTiles = [];
+          for (var coin in coins) {
+            if (coin.howMuchUserOwns > 0.0) {
+              coinsListTiles.add(MyCoinListTile(coin: coin));
+            }
+          }
+          return Column(
+            children: coinsListTiles,
+          );
+        });
   }
 }
-
