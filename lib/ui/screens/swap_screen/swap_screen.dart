@@ -1,3 +1,4 @@
+import 'package:belo_challenge/ui/screens/swap_screen/widgets/operation_buttons.dart';
 import 'package:belo_challenge/ui/widgets/screen_title.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
@@ -13,16 +14,23 @@ class SwapScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: kDefaultPadding, vertical: kDefaultPadding * 2),
-                child: Row(
-                  children: [
-                    ScreenTitle(title: "Swap"),
-                    Spacer(),
-                    IconButton(icon: Icon(FeatherIcons.settings), onPressed: (){})
-                  ],
-                ),
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: kDefaultPadding, vertical: kDefaultPadding * 2),
+                    child: Row(
+                      children: [
+                        ScreenTitle(title: "Swap"),
+                        Spacer(),
+                        IconButton(
+                            icon: Icon(FeatherIcons.settings), onPressed: () {}),
+                      ],
+                    ),
+                  ),
+                ],
               ),
+                  OperationButtons()
             ],
           ),
         ),
@@ -30,3 +38,4 @@ class SwapScreen extends StatelessWidget {
     );
   }
 }
+

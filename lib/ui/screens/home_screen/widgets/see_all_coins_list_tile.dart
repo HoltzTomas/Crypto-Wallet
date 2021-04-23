@@ -1,7 +1,6 @@
 import 'package:belo_challenge/models/Coin.dart';
 import 'package:flutter/material.dart';
-import 'package:websafe_svg/websafe_svg.dart';
-
+ 
 import '../../../../constants.dart';
 
 class SeeAllCoinsListTile extends StatelessWidget {

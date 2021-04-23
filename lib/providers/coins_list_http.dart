@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
-final coinListRequest = AutoDisposeStreamProvider<List<Coin>>((ref) async*{
+final coinListRequest = StreamProvider<List<Coin>>((ref) async*{
 
   final response = await http.get(Uri.parse(
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=ars&order=market_cap_desc&per_page=100&page=1&sparkline=false"));
