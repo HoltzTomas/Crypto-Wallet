@@ -8,7 +8,10 @@ import '../../../../constants.dart';
 class SelectCoinBottomSheet extends StatelessWidget {
   const SelectCoinBottomSheet({
     Key key,
+    @required this.coinSelectedProvider
   }) : super(key: key);
+
+  final StateProvider coinSelectedProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,10 @@ class SelectCoinBottomSheet extends StatelessWidget {
                 for (var coin in data) {
                   list.add(Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SelectedCoinTile(coin: coin),
+                    child: SelectedCoinTile(
+                      coin: coin,
+                      coinSelectedProvider: coinSelectedProvider,
+                      ),
                   ));
                 }
                 return ListView(children: list);

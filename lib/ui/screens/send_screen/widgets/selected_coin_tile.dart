@@ -1,5 +1,4 @@
 import 'package:belo_challenge/models/Coin.dart';
-import 'package:belo_challenge/ui/screens/send_screen/send_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../constants.dart';
@@ -7,10 +6,12 @@ import '../../../../constants.dart';
 class SelectedCoinTile extends StatelessWidget {
   const SelectedCoinTile({
     Key key,
+    @required this.coinSelectedProvider,
     @required this.coin,
   }) : super(key: key);
 
   final Coin coin;
+  final StateProvider coinSelectedProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class SelectedCoinTile extends StatelessWidget {
                   backgroundColor: MaterialStateProperty.all(Colors.black),
                 ),
                 onPressed: () {
-                  context.read(coinSelected).state = coin;
+                  context.read(coinSelectedProvider).state = coin;
                   Navigator.pop(context);
                 })),
       ],

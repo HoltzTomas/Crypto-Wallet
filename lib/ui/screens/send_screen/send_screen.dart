@@ -4,7 +4,7 @@ import 'package:belo_challenge/ui/screens/send_screen/widgets/select_coin_bottom
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final coinSelected = StateProvider<Coin>((ref) => null);
+final coinToSendSelected = StateProvider<Coin>((ref) => null);
 
 class SendScreen extends StatefulWidget {
   @override
@@ -47,11 +47,11 @@ class _SendScreenState extends State<SendScreen> {
                   flex: 1,
                   child: Consumer(
                     builder: (context, watch, child) {
-                      if (watch(coinSelected).state == null) {
+                      if (watch(coinToSendSelected).state == null) {
                         return Text("Select a Coin");
                       } else {
                         return Container(
-                          child: Image.network(watch(coinSelected).state.imageUrl),
+                          child: Image.network(watch(coinToSendSelected).state.imageUrl),
                         );
                       }
                     },
@@ -108,7 +108,9 @@ class _SendScreenState extends State<SendScreen> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (builder) {
-                            return SelectCoinBottomSheet();
+                            return SelectCoinBottomSheet(
+                              coinSelectedProvider: coinToSendSelected,
+                            );
                           });
                     },
                   ),

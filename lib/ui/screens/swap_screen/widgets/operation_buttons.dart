@@ -1,6 +1,6 @@
 import 'package:belo_challenge/ui/screens/deposit_screen/deposit_screen.dart';
 import 'package:belo_challenge/ui/screens/send_screen/send_screen.dart';
-import 'package:belo_challenge/ui/screens/swap_screen/widgets/exchange_screen.dart';
+import 'package:belo_challenge/ui/screens/exchange_screen/exchange_screen.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
