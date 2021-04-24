@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Exchangetcreen extends StatelessWidget {
+class ExchangeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

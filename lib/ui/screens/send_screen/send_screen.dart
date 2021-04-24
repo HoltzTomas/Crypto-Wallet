@@ -1,6 +1,6 @@
 import 'package:belo_challenge/constants.dart';
 import 'package:belo_challenge/models/Coin.dart';
-import 'package:belo_challenge/ui/screens/swap_screen/widgets/select_coin_bottom_sheet.dart';
+import 'package:belo_challenge/ui/screens/send_screen/widgets/select_coin_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -64,7 +64,6 @@ class _SendScreenState extends State<SendScreen> {
         Container(
           margin: EdgeInsets.symmetric(horizontal: kDefaultPadding * 2),
           child: TextFormField(
-            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               hintText: "Wallet Direction",
             ),

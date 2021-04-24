@@ -1,5 +1,5 @@
 import 'package:belo_challenge/providers/coins_list_http.dart';
-import 'package:belo_challenge/ui/screens/swap_screen/widgets/selected_coin_tile.dart';
+import 'package:belo_challenge/ui/screens/send_screen/widgets/selected_coin_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

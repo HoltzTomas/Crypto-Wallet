@@ -1,4 +1,6 @@
+import 'package:belo_challenge/providers/user_current_money.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 import '../../../../constants.dart';
 
@@ -10,12 +12,16 @@ class CreditCard extends StatelessWidget {
       Row(
         children: [
           Icon(Icons.attach_money, color: kSecondaryColor),
-          Text(
-            "49,300.25",
-            style: TextStyle(
-                color: kSecondaryColor,
-                fontWeight: FontWeight.normal,
-                fontSize: 35),
+          Consumer(
+            builder: (context, watch, child) {
+              return Text(
+                watch(currentMoneyProvider).state.toString(),
+                style: TextStyle(
+                    color: kSecondaryColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 35),
+              );
+            },
           )
         ],
       ),
@@ -39,10 +45,9 @@ class CreditCard extends StatelessWidget {
   );
 
   final bitcoinSvg = Container(
-    alignment: Alignment.topRight,
-    margin: EdgeInsets.only(bottom: kDefaultPadding),
-    child: WebsafeSvg.asset("assets/icons/btc.svg", color: Colors.black)
-  );
+      alignment: Alignment.topRight,
+      margin: EdgeInsets.only(bottom: kDefaultPadding),
+      child: WebsafeSvg.asset("assets/icons/btc.svg", color: Colors.black));
 
   @override
   Widget build(BuildContext context) {
@@ -57,13 +62,13 @@ class CreditCard extends StatelessWidget {
               LinearGradient(colors: <Color>[kPrimaryColor, kAccentColor]),
           borderRadius: BorderRadius.circular(30.0)),
       child: Column(
-        children: [Row(
-          children: [
-            avaibleMoney,
-            Spacer(),
-            bitcoinSvg
-          ],
-        ), Spacer(), userName],
+        children: [
+          Row(
+            children: [avaibleMoney, Spacer(), bitcoinSvg],
+          ),
+          Spacer(),
+          userName
+        ],
       ),
     );
   }
