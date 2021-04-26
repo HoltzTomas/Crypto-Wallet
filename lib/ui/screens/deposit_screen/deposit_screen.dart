@@ -22,7 +22,7 @@ class _DepositScreenState extends State<DepositScreen> {
             controller: _moneyController,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
-              hintText: "How much... (EX: ARS 556)",
+              hintText: "Cuanto dinero depositar (Ej: ARS 556)",
             ),
           ),
         ),
@@ -33,11 +33,11 @@ class _DepositScreenState extends State<DepositScreen> {
           child: Consumer(
             builder: (context, watch, child) {
               return TextButton(
-                child: Text("Deposit Money",
+                child: Text("Depositar Diero",
                     textAlign: TextAlign.center,
                     style: TextStyle(color: kAccentColor)),
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
+                  backgroundColor: MaterialStateProperty.all(kPrimaryColor),
                 ),
                 onPressed: () {
                   double userMoney = double.parse(_moneyController.text);

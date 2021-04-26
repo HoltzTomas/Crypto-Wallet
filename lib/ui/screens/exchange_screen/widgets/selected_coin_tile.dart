@@ -35,7 +35,7 @@ class SelectedCoinTile extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold)),
         ),
         Spacer(),
-        //How many coins
+        //Select Button
         Container(
             child: TextButton(
                 child: Text("Select",

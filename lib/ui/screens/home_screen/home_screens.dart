@@ -2,7 +2,6 @@ import 'package:belo_challenge/constants.dart';
 import 'package:belo_challenge/ui/screens/home_screen/widgets/coins_information.dart';
 import 'package:belo_challenge/ui/screens/home_screen/widgets/credit_card.dart';
 import 'package:belo_challenge/ui/widgets/screen_title.dart';
-import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,7 +19,6 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     ScreenTitle(title: "Balance"),
                     Spacer(),
-                    IconButton(icon: Icon(FeatherIcons.settings), onPressed: (){})
                   ],
                 ),
               ),

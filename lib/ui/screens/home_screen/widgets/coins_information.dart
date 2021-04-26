@@ -42,7 +42,9 @@ class _CoinsInformationState extends State<CoinsInformation> {
                       }
                     });
                   },
-                  child: Text("Mis monedas")),
+                  child: Text("Mis monedas", style: TextStyle(
+                    color: myCoinsIsActive ? kPrimaryColor : Colors.grey
+                  ),)),
               Spacer(),
               TextButton(
                   autofocus: seeAllCoinsIsActive,
@@ -54,7 +56,9 @@ class _CoinsInformationState extends State<CoinsInformation> {
                       }
                     });
                   },
-                  child: Text("Ver Todas"))
+                  child: Text("Ver todas", style: TextStyle(
+                    color: seeAllCoinsIsActive ? kPrimaryColor : Colors.grey
+                  ),))
             ],
           ),
           SingleChildScrollView(

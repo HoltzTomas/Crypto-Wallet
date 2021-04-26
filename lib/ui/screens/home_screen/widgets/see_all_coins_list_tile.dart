@@ -39,7 +39,7 @@ class SeeAllCoinsListTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text("USD ${coin.price}",
+                Text("ARS ${coin.price}",
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 Text("%${coin.dayPriceVariety.toStringAsFixed(2)}",
                     style: TextStyle(fontSize: 12)),

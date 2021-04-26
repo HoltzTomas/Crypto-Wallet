@@ -42,7 +42,7 @@ class MyCoinListTile extends StatelessWidget {
                 Text(
                     "ARS ${(coin.howMuchUserOwns * coin.price).toStringAsFixed(2)}",
                     style: TextStyle(fontWeight: FontWeight.bold)),
-                Text("${coin.howMuchUserOwns} ${coin.abreviation}",
+                Text("${coin.howMuchUserOwns.toStringAsFixed(8)} ${coin.abreviation}",
                     style: TextStyle(fontSize: 12)),
               ],
             ),

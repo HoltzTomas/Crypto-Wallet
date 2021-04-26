@@ -1,5 +1,4 @@
 import 'package:belo_challenge/ui/screens/deposit_screen/deposit_screen.dart';
-import 'package:belo_challenge/ui/screens/send_screen/send_screen.dart';
 import 'package:belo_challenge/ui/screens/exchange_screen/exchange_screen.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +15,10 @@ class OperationButtons extends StatefulWidget {
 }
 
 class _OperationButtonsState extends State<OperationButtons> {
-  bool isSendActive = true, isDepositActive = false, isExchangeActive = false;
+  bool isDepositActive = true, isExchangeActive = false;
 
   Widget selectScreen() {
-    if (isSendActive) {
-      return SendScreen();
-    } else if (isDepositActive) {
+    if (isDepositActive) {
       return DepositScreen();
     } else {
       return ExchangeScreen();
@@ -38,37 +35,18 @@ class _OperationButtonsState extends State<OperationButtons> {
             Column(
               children: [
                 FloatingActionButton(
-                  heroTag: "Send Button",
-                  mini: true,
-                  backgroundColor: kAccentColor.withOpacity(0.8),
-                  child: Icon(FeatherIcons.arrowUpRight),
-                  onPressed: () {
-                    setState(() {
-                      isSendActive = true;
-                      isDepositActive = false;
-                      isExchangeActive = false;
-                    });
-                  },
-                ),
-                Text("Send")
-              ],
-            ),
-            Column(
-              children: [
-                FloatingActionButton(
                   heroTag: "Deposit Button",
                   mini: true,
                   backgroundColor: kAccentColor.withOpacity(0.8),
-                  child: Icon(FeatherIcons.plusCircle),
+                  child: Icon(FeatherIcons.plusCircle, color: kPrimaryColor),
                   onPressed: () {
                     setState(() {
-                      isSendActive = false;
                       isDepositActive = true;
                       isExchangeActive = false;
                     });
                   },
                 ),
-                Text("Deposit")
+                Text(isDepositActive ? "Depositar" : "")
               ],
             ),
             Column(
@@ -77,16 +55,15 @@ class _OperationButtonsState extends State<OperationButtons> {
                   heroTag: "Exchange Button",
                   mini: true,
                   backgroundColor: kAccentColor.withOpacity(0.8),
-                  child: Icon(FeatherIcons.repeat),
+                  child: Icon(FeatherIcons.repeat, color: kPrimaryColor),
                   onPressed: () {
                     setState(() {
-                      isSendActive = false;
                       isDepositActive = false;
                       isExchangeActive = true;
                     });
                   },
                 ),
-                Text("Exchange"),
+                Text(isExchangeActive ? "Exchange" : ""),
               ],
             ),
           ],
