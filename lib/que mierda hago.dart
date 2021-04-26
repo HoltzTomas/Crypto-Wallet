@@ -1,3 +1,0 @@
-//Screens
-//Home(Balances)
-//Swap
