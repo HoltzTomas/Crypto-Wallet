@@ -31,6 +31,7 @@ class SeeAllCoinsListTile extends StatelessWidget {
           Container(
             child: Text(
                 "${coin.name[0].toUpperCase()}${coin.name.substring(1)}",
+                overflow: TextOverflow.fade,
                 style: TextStyle(fontWeight: FontWeight.bold)),
           ),
           Spacer(),
@@ -40,8 +41,10 @@ class SeeAllCoinsListTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text("ARS ${coin.price}",
+                overflow: TextOverflow.fade,
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 Text("%${coin.dayPriceVariety.toStringAsFixed(2)}",
+                overflow: TextOverflow.fade,
                     style: TextStyle(fontSize: 12)),
               ],
             ),

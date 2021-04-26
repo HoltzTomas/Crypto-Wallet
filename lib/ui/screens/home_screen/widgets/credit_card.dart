@@ -29,6 +29,7 @@ class CreditCard extends StatelessWidget {
         height: 5.0,
       ),
       Text("Dinero disponible en moneda local",
+      overflow: TextOverflow.fade,
           style: TextStyle(
             color: kSecondaryColor,
             fontWeight: FontWeight.normal,
@@ -37,7 +38,7 @@ class CreditCard extends StatelessWidget {
   ));
 
   final userName = Container(
-    alignment: Alignment.centerLeft,
+    alignment: Alignment.bottomLeft,
     child: Text(
       "Satoshi Nakamoto",
       style: TextStyle(color: kSecondaryColor, fontStyle: FontStyle.italic),
@@ -46,7 +47,6 @@ class CreditCard extends StatelessWidget {
 
   final bitcoinSvg = Container(
       alignment: Alignment.topRight,
-      margin: EdgeInsets.only(bottom: kDefaultPadding),
       child: WebsafeSvg.asset("assets/icons/btc.svg", color: Colors.black));
 
   @override
@@ -55,7 +55,7 @@ class CreditCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
       padding: EdgeInsets.symmetric(
           horizontal: kDefaultPadding, vertical: kDefaultPadding),
-      width: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.25,
       decoration: BoxDecoration(
           gradient:
@@ -63,8 +63,11 @@ class CreditCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(30.0)),
       child: Column(
         children: [
-          Row(
-            children: [avaibleMoney, Spacer(), bitcoinSvg],
+          Container(
+            alignment: Alignment.topRight,
+            child: Row(
+              children: [Expanded(flex:2, child: avaibleMoney), Expanded(flex: 1,child: bitcoinSvg)],
+            ),
           ),
           Spacer(),
           userName
