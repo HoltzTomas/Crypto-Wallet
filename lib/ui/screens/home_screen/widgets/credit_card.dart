@@ -9,27 +9,23 @@ class CreditCard extends StatelessWidget {
       child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Row(
-        children: [
-          Icon(Icons.attach_money, color: kSecondaryColor),
-          Consumer(
-            builder: (context, watch, child) {
-              return Text(
-                watch(currentMoneyProvider).state.toString(),
-                style: TextStyle(
-                    color: kSecondaryColor,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 35),
-              );
-            },
-          )
-        ],
+      Consumer(
+        builder: (context, watch, child) {
+          return Text(
+            "ARS ${watch(currentMoneyProvider).state.toString()}",
+            overflow: TextOverflow.fade,
+            style: TextStyle(
+                color: kSecondaryColor,
+                fontWeight: FontWeight.normal,
+                fontSize: 25),
+          );
+        },
       ),
       SizedBox(
         height: 5.0,
       ),
       Text("Dinero disponible en moneda local",
-      overflow: TextOverflow.fade,
+          overflow: TextOverflow.fade,
           style: TextStyle(
             color: kSecondaryColor,
             fontWeight: FontWeight.normal,
@@ -66,7 +62,10 @@ class CreditCard extends StatelessWidget {
           Container(
             alignment: Alignment.topRight,
             child: Row(
-              children: [Expanded(flex:2, child: avaibleMoney), Expanded(flex: 1,child: bitcoinSvg)],
+              children: [
+                Expanded(flex: 2, child: avaibleMoney),
+                Expanded(flex: 1, child: bitcoinSvg)
+              ],
             ),
           ),
           Spacer(),
