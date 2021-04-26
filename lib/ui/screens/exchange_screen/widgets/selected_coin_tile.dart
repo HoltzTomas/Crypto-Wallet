@@ -42,7 +42,7 @@ class SelectedCoinTile extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(color: kAccentColor)),
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
+                  backgroundColor: MaterialStateProperty.all(kPrimaryColor),
                 ),
                 onPressed: () {
                   context.read(coinSelectedProvider).state = coin;

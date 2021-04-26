@@ -38,7 +38,7 @@ class SelectCoinBottomSheet extends StatelessWidget {
                 }
                 return ListView(children: list);
               },
-              loading: () => const CircularProgressIndicator(),
+              loading: () => Center(child: const CircularProgressIndicator()),
               error: (err, stack) => Text('Error: $err'),
             ));
       },

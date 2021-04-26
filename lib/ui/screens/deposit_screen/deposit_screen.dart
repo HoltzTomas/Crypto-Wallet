@@ -40,37 +40,45 @@ class _DepositScreenState extends State<DepositScreen> {
                   backgroundColor: MaterialStateProperty.all(kPrimaryColor),
                 ),
                 onPressed: () {
-                  double userMoney = double.parse(_moneyController.text);
-                  double userTotalMoneyAfterDeposit =
-                      userMoney + watch(currentMoneyProvider).state;
-                  showDialog(
-                      context: context,
-                      builder: (builder) {
-                        return AlertDialog(
-                          title: Text(
-                              "Seguro quieres depositar ARS ${_moneyController.text} a tu cuenta?"),
-                          content: Text(
-                              "Total despues del deposito ARS $userTotalMoneyAfterDeposit"),
-                          actions: [
-                            TextButton(
-                                onPressed: () {
-                                  watch(currentMoneyProvider).state =
-                                      userTotalMoneyAfterDeposit;
-                                  Navigator.pop(context);
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content: Text(
-                                              "Se depositaron Ars ${_moneyController.text}. Total actual Ars $userTotalMoneyAfterDeposit")));
-                                },
-                                child: Text("Si")),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text("No"))
-                          ],
-                        );
-                      });
+                  if (_moneyController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                            "Selecciona cuanto dinero quieres depositar")));
+                  } else {
+                    double userMoney = double.parse(_moneyController.text);
+                    double userTotalMoneyAfterDeposit =
+                        userMoney + watch(currentMoneyProvider).state;
+                    showDialog(
+                        context: context,
+                        builder: (builder) {
+                          return AlertDialog(
+                            title: Text(
+                                "¿Seguro quieres depositar ARS ${_moneyController.text} a tu cuenta?"),
+                            content: Text(
+                                "Total despues del deposito: ARS $userTotalMoneyAfterDeposit"),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    watch(currentMoneyProvider).state =
+                                        userTotalMoneyAfterDeposit;
+                                    Navigator.pop(context);
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            content: Text(
+                                                "Se depositaron Ars ${_moneyController.text}. Total actual Ars $userTotalMoneyAfterDeposit")));
+                                  },
+                                  child: Text("Si",
+                                      style: TextStyle(color: kAccentColor))),
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text("No",
+                                      style: TextStyle(color: kAccentColor)))
+                            ],
+                          );
+                        });
+                  }
                 },
               );
             },

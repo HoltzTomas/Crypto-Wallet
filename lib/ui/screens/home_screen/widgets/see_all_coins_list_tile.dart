@@ -23,7 +23,7 @@ class SeeAllCoinsListTile extends StatelessWidget {
               child: Image.network(coin.imageUrl, fit: BoxFit.cover),
             ),
             decoration: BoxDecoration(
-                color: Colors.blue[600],
+                color: kPrimaryColor,
                 borderRadius: BorderRadius.circular(15)),
           ),
           SizedBox(width: kDefaultPadding),
